@@ -1,0 +1,52 @@
+name: Pedido sobre uma empresa
+description: Correção, remoção ou inclusão de uma empresa no MangueStack
+title: "[Pedido] "
+labels: ["pedido"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tudo o que você escrever aqui fica **público**. Não inclua CPF, telefone, e-mail pessoal, endereço residencial nem nome de sócios.
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de pedido
+      options:
+        - Correção de dados
+        - Remoção da empresa
+        - Inclusão de uma empresa
+    validations:
+      required: true
+  - type: input
+    id: empresa
+    attributes:
+      label: Empresa
+      description: Nome da empresa como aparece no MangueStack ou, para inclusão, o nome dela.
+    validations:
+      required: true
+  - type: input
+    id: perfil
+    attributes:
+      label: Link do perfil no MangueStack
+      description: Deixe em branco se for um pedido de inclusão.
+      placeholder: https://manguestack.pages.dev/empresas/123
+  - type: textarea
+    id: pedido
+    attributes:
+      label: O que precisa mudar
+      description: Diga o que está errado e qual é a informação correta, ou por que a empresa deve sair ou entrar.
+    validations:
+      required: true
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte oficial
+      description: Um link público que confirme a informação, como o site da empresa ou a página dela no LinkedIn.
+      placeholder: https://
+  - type: checkboxes
+    id: confirmacoes
+    attributes:
+      label: Confirmações
+      options:
+        - label: Não incluí dados pessoais neste pedido.
+          required: true
